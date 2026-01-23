@@ -9,11 +9,24 @@ import { siteConfig } from "@/config/site";
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      // Determine active section
+      const sections = ["home", "about", "skills", "projects", "contact"];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections.reverse()) {
+        const element = document.getElementById(section);
+        if (element && element.offsetTop <= scrollPosition) {
+          setActiveSection(section);
+          break;
+        }
+      }
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -56,34 +69,54 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {siteConfig.navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(link.href);
-                }}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
-              >
-                {link.name}
-              </a>
-            ))}
+            {siteConfig.navLinks.map((link) => {
+              const sectionId = link.href.replace("#", "");
+              const isActive = activeSection === sectionId;
+              return (
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(link.href);
+                  }}
+                  className={`relative px-3 py-2 text-sm font-medium transition-colors ${
+                    isActive
+                      ? "text-blue-600 dark:text-blue-400"
+                      : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                  }`}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ y: 0 }}
+                >
+                  {link.name}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeNav"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400"
+                      initial={false}
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                </motion.a>
+              );
+            })}
           </div>
 
           {/* Theme Toggle & Mobile Menu Button */}
           <div className="flex items-center space-x-4">
-            <button
+            <motion.button
               onClick={toggleTheme}
               className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               aria-label="Toggle theme"
+              whileHover={{ rotate: 15, scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
             >
               {theme === "light" ? (
                 <MoonIcon className="w-5 h-5" />
               ) : (
                 <SunIcon className="w-5 h-5" />
               )}
-            </button>
+            </motion.button>
 
             {/* Mobile Menu Button */}
             <button

@@ -31,17 +31,32 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="relative group"
           >
             <div className="relative w-full h-96 rounded-lg overflow-hidden shadow-xl">
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+              />
               <Image
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop"
                 alt="Profile"
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
                 priority
               />
             </div>
+            <motion.div
+              className="absolute -bottom-4 -right-4 w-24 h-24 bg-blue-600 dark:bg-blue-500 rounded-lg opacity-20 blur-2xl"
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.2, 0.3, 0.2],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
           </motion.div>
 
           {/* Content */}

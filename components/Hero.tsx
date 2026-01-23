@@ -1,10 +1,23 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDownIcon } from "@heroicons/react/24/outline";
 import { siteConfig } from "@/config/site";
+import { useRef } from "react";
 
 export default function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const blob1Y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const blob2Y = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
+  const blob3Y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+
   const scrollToProjects = () => {
     const element = document.querySelector("#projects");
     if (element) {
@@ -14,17 +27,30 @@ export default function Hero() {
 
   return (
     <section
+      ref={ref}
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
     >
-      {/* Background decoration */}
+      {/* Background decoration with parallax */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-300 dark:bg-blue-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-xl opacity-20 animate-blob"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-300 dark:bg-purple-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-300 dark:bg-pink-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+        <motion.div
+          style={{ y: blob1Y }}
+          className="absolute -top-40 -right-40 w-80 h-80 bg-blue-300 dark:bg-blue-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-xl opacity-20 animate-blob"
+        ></motion.div>
+        <motion.div
+          style={{ y: blob2Y }}
+          className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-300 dark:bg-purple-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-xl opacity-20 animate-blob animation-delay-2000"
+        ></motion.div>
+        <motion.div
+          style={{ y: blob3Y }}
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-300 dark:bg-pink-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-xl opacity-20 animate-blob animation-delay-4000"
+        ></motion.div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <motion.div
+        style={{ y, opacity }}
+        className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+      >
         <div className="text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -67,24 +93,36 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.8 }}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
-              <motion.button
-                onClick={scrollToProjects}
-                className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                View Projects
-              </motion.button>
+            <motion.button
+              onClick={scrollToProjects}
+              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl relative overflow-hidden group"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="relative z-10">View Projects</span>
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: 0 }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.button>
 
               <motion.a
                 href={siteConfig.social.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-semibold hover:border-blue-600 dark:hover:border-blue-400 transition-colors"
-                whileHover={{ scale: 1.05 }}
+                className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-semibold hover:border-blue-600 dark:hover:border-blue-400 transition-colors relative overflow-hidden group"
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                View GitHub
+                <span className="relative z-10">View GitHub</span>
+                <motion.div
+                  className="absolute inset-0 bg-gray-100 dark:bg-gray-800"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: 0 }}
+                  transition={{ duration: 0.3 }}
+                />
               </motion.a>
             </motion.div>
           </motion.div>
@@ -110,7 +148,7 @@ export default function Hero() {
             </motion.button>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       <style jsx>{`
         @keyframes blob {

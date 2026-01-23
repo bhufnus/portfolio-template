@@ -81,36 +81,67 @@ export default function Skills() {
                 transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
                 className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg"
               >
-                <div className="flex items-center mb-6">
-                  <div className={`p-3 rounded-lg ${colors.bg}`}>
+                <motion.div
+                  className="flex items-center mb-6"
+                  whileHover={{ x: 4 }}
+                >
+                  <motion.div
+                    className={`p-3 rounded-lg ${colors.bg}`}
+                    whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                  >
                     <Icon className={`w-6 h-6 ${colors.text}`} />
-                  </div>
+                  </motion.div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white ml-4">
                     {category.title}
                   </h3>
-                </div>
+                </motion.div>
 
                 <div className="space-y-4">
                   {skills.map((skill, skillIndex) => (
-                    <div key={skillIndex}>
+                    <motion.div
+                      key={skillIndex}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
+                      className="group"
+                    >
                       <div className="flex justify-between items-center mb-2">
-                        <span className="text-gray-700 dark:text-gray-300 font-medium">
+                        <motion.span
+                          className="text-gray-700 dark:text-gray-300 font-medium"
+                          whileHover={{ x: 4, color: colors.text }}
+                        >
                           {skill.name}
-                        </span>
-                        <span className="text-gray-600 dark:text-gray-400 text-sm">
+                        </motion.span>
+                        <motion.span
+                          className="text-gray-600 dark:text-gray-400 text-sm font-semibold"
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: categoryIndex * 0.1 + skillIndex * 0.05 + 0.5 }}
+                        >
                           {skill.level}%
-                        </span>
+                        </motion.span>
                       </div>
-                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}
                           whileInView={{ width: `${skill.level}%` }}
                           viewport={{ once: true }}
-                          transition={{ duration: 1, delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
-                          className={`h-2.5 rounded-full ${colors.progress}`}
-                        />
+                          transition={{ duration: 1.2, delay: categoryIndex * 0.1 + skillIndex * 0.05, ease: "easeOut" }}
+                          className={`h-2.5 rounded-full ${colors.progress} relative overflow-hidden`}
+                        >
+                          <motion.div
+                            className="absolute inset-0 bg-white/30"
+                            initial={{ x: "-100%" }}
+                            whileInView={{ x: "100%" }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1.5, delay: categoryIndex * 0.1 + skillIndex * 0.05 + 0.3, repeat: Infinity, repeatDelay: 2 }}
+                          />
+                        </motion.div>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </motion.div>
