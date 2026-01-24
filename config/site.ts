@@ -1,15 +1,14 @@
 export const siteConfig = {
   // Personal Information
-  name: "Your Name",
-  title: "Fullstack JavaScript Engineer",
-  bio: "Passionate fullstack developer specializing in React, Node.js, and modern web technologies. Building scalable applications with clean code and best practices.",
+  name: "Brian Hufnus",
+  title: "Fullstack Engineer and Cloud Expert",
+  bio: "I'm an experienced developer specializing in React, Java Spring Boot, SQL/NoSQL, and modern web technologies. I build scalable cloud-based applications with AWS and Kubernetes while adhering to clean code and best practices.",
   email: "your.email@example.com",
   
   // Social Links
   social: {
-    github: "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
-    twitter: "https://twitter.com/yourusername",
+    github: "https://github.com/bhufnus",
+    linkedin: "https://www.linkedin.com/in/brian-hufnus-761007127/",
     email: "mailto:your.email@example.com",
   },
   
@@ -25,8 +24,8 @@ export const siteConfig = {
   // Experience Timeline
   experience: [
     {
-      title: "Senior Fullstack Developer",
-      company: "Tech Company X",
+      title: "Associate Software Engineer",
+      company: "Northwestern Mutual",
       period: "2022 - Present",
       description: "Leading development of scalable web applications using React, Next.js, and Node.js.",
     },
@@ -47,34 +46,37 @@ export const siteConfig = {
   // Education
   education: [
     {
-      degree: "Bachelor of Science in Computer Science",
-      school: "University Name",
+      degree: "Bachelor of Science in Biology",
+      school: "Loyola University Chicago",
       period: "2014 - 2018",
     },
   ],
   
   // Skills
   skills: {
-    core: [
-      { name: "React", level: 95 },
-      { name: "Node.js", level: 90 },
-      { name: "Next.js", level: 92 },
-      { name: "TypeScript", level: 88 },
-    ],
+
     frontend: [
-      { name: "Tailwind CSS", level: 90 },
-      { name: "Redux", level: 85 },
-      { name: "Framer Motion", level: 80 },
+      { name: "React", level: 85 },
+      { name: "Javascript/Typescript", level: 90 },
+      { name: "Tailwind CSS", level: 75 },
+      { name: "Redux", level: 80 },
     ],
     backend: [
       { name: "Express", level: 88 },
-      { name: "MongoDB", level: 85 },
-      { name: "PostgreSQL", level: 82 },
+      { name: "Java Spring Boot", level: 88 },
+      { name: "MongoDB", level: 99 },
+      { name: "PostgreSQL", level: 90 },
     ],
     tools: [
-      { name: "Git", level: 90 },
-      { name: "Docker", level: 80 },
-      { name: "AWS", level: 75 },
+      { name: "Git", level: 99 },
+      { name: "Docker", level: 99 },
+      { name: "AWS", level: 96 },
+    ],
+    core: [
+      { name: "Machine Learning with Python", level: 65 },
+      { name: "Cybersecurity", level: 35 },
+      { name: "Financial Markets", level: 25 },
+
     ],
   },
   
@@ -82,12 +84,12 @@ export const siteConfig = {
   projects: [
     {
       id: 1,
-      title: "E-commerce Platform",
-      description: "A full-featured e-commerce application with shopping cart, payment integration, and admin dashboard.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-      tech: ["React", "Next.js", "Node.js", "MongoDB", "Stripe"],
-      github: "https://github.com/yourusername/ecommerce",
-      demo: "https://ecommerce-demo.vercel.app",
+      title: "./memory",
+      description: "A fun memory game built with React and Javascript with live leaderboard results stored in FirebaseDb. How many levels can you beat?",
+      image: "/reactmemorygame.png",
+      tech: ["React", "Javascript", "Node.js", "FirebaseDb"],
+      github: "https://github.com/TAB-Games/ReactMemoryGame",
+      demo: "https://tab-games.github.io/ReactMemoryGame/",
       category: "fullstack",
     },
     {

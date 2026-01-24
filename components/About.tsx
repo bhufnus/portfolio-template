@@ -38,7 +38,7 @@ export default function About() {
                 className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
               />
               <Image
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop"
+                src="/profile.png"
                 alt="Profile"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"

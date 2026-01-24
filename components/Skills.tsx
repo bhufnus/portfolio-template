@@ -18,10 +18,10 @@ const skillIcons = {
 
 export default function Skills() {
   const skillCategories = [
-    { title: "Core Technologies", key: "core" as const, color: "blue" },
     { title: "Frontend", key: "frontend" as const, color: "purple" },
     { title: "Backend", key: "backend" as const, color: "green" },
     { title: "Tools & DevOps", key: "tools" as const, color: "orange" },
+    { title: "Current Interests", key: "core" as const, color: "blue" },
   ];
 
   const colorClasses = {
@@ -68,9 +68,9 @@ export default function Skills() {
 
         <div className="grid md:grid-cols-2 gap-8">
           {skillCategories.map((category, categoryIndex) => {
-            const Icon = skillIcons[category.key];
-            const skills = siteConfig.skills[category.key];
-            const colors = colorClasses[category.color];
+            const Icon = skillIcons[category.key as keyof typeof skillIcons];
+            const skills = siteConfig.skills[category.key as keyof typeof siteConfig.skills];
+            const colors = colorClasses[category.color as keyof typeof colorClasses];
 
             return (
               <motion.div
