@@ -351,7 +351,7 @@ export default function About() {
               <motion.div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
               <Image
                 src="/profile.png"
-                alt="Profile"
+                alt="Profile picture"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
                 priority

@@ -35,11 +35,13 @@ A modern, responsive portfolio website template built with Next.js 15+, React 19
 ### Installation
 
 1. Navigate to the project directory:
+
 ```bash
 cd portfolio-template
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 # or
@@ -49,6 +51,7 @@ pnpm install
 ```
 
 3. Run the development server:
+
 ```bash
 npm run dev
 # or
@@ -83,6 +86,7 @@ Edit `config/site.ts` to customize:
 ### Images
 
 Replace placeholder images:
+
 - Profile image: Update the URL in `components/About.tsx`
 - Project images: Update URLs in `config/site.ts` projects array
 - OG Image: Create and add your Open Graph image
@@ -92,11 +96,13 @@ Replace placeholder images:
 The contact form currently uses a mock submission. To enable real form handling:
 
 1. **Option 1: Formspree**
+
    - Sign up at [formspree.io](https://formspree.io)
    - Get your form endpoint
    - Update the form submission in `components/Contact.tsx`
 
 2. **Option 2: Custom API Route**
+
    - Create `app/api/contact/route.ts`
    - Implement your email service (SendGrid, Resend, etc.)
    - Update the form submission in `components/Contact.tsx`
@@ -117,6 +123,7 @@ The contact form currently uses a mock submission. To enable real form handling:
 ### Other Platforms
 
 This template can be deployed to any platform that supports Next.js:
+
 - **Netlify**: Use the Next.js build preset
 - **AWS Amplify**: Connect your repository
 - **Railway**: Deploy with one click
@@ -179,14 +186,8 @@ portfolio-template/
 
 This template is open source and available under the [MIT License](LICENSE).
 
-## Contributing
-
-Feel free to fork this template and customize it for your needs. If you have suggestions or improvements, pull requests are welcome!
-
 ## Support
 
 For issues or questions, please open an issue on GitHub or contact the maintainer.
 
 ---
-
-Built with ❤️ using Next.js, React, and Tailwind CSS

@@ -4,7 +4,7 @@ const nextConfig = {
   images: {
     domains: ["images.unsplash.com", "via.placeholder.com"]
   },
-  output: "export",
+
   eslint: {
     ignoreDuringBuilds: true
   },
