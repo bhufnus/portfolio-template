@@ -79,13 +79,26 @@ export default function Hero() {
             </motion.p>
 
             <motion.p
-              className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8"
+              className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
               {siteConfig.bio}
             </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="flex justify-center mb-8"
+            >
+              <img
+                src="https://skillicons.dev/icons?i=java,react,nextjs,linux,spring,aws,mongodb,python,postgres,mysql,docker,kubernetes,git,gitlab"
+                alt="Skills"
+                className="h-12 sm:h-14 md:h-16 w-auto max-w-full object-contain"
+              />
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
