@@ -9,7 +9,7 @@ export default function Hero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end start"],
+    offset: ["start start", "end start"]
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
@@ -94,7 +94,7 @@ export default function Hero() {
               className="flex justify-center mb-8"
             >
               <img
-                src="https://skillicons.dev/icons?i=java,react,nextjs,linux,spring,aws,mongodb,python,postgres,mysql,docker,kubernetes,git,gitlab"
+                src="/icons-dev-stack.svg"
                 alt="Skills"
                 className="h-12 sm:h-14 md:h-16 w-auto max-w-full object-contain"
               />
@@ -106,20 +106,20 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.8 }}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
-            <motion.button
-              onClick={scrollToProjects}
-              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl relative overflow-hidden group"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="relative z-10">View Projects</span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700"
-                initial={{ x: "-100%" }}
-                whileHover={{ x: 0 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.button>
+              <motion.button
+                onClick={scrollToProjects}
+                className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl relative overflow-hidden group"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="relative z-10">View Projects</span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.button>
 
               <motion.a
                 href={siteConfig.social.github}

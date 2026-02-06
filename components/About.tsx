@@ -4,6 +4,7 @@ import { useRef, useCallback, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/config/site";
 import Image from "next/image";
+import { Icon } from "@iconify/react";
 
 const CURSOR_OFFSET = 16;
 const POPOVER_CLOSE_DELAY = 120;
@@ -152,16 +153,40 @@ function ExperienceCard({
           className="absolute -inset-1 rounded-xl bg-blue-500/5 dark:bg-blue-400/5 opacity-0 blur-xl transition-opacity duration-300 group-hover/card:opacity-100 pointer-events-none"
           aria-hidden
         />
-        <div className="relative">
-          <h4 className="text-xl font-semibold text-gray-900 dark:text-white">
-            {item.title}
-          </h4>
-          <p className="text-blue-600 dark:text-blue-400 font-medium mt-1">
-            {item.company} • {item.period}
-          </p>
-          <p className="text-gray-700 dark:text-gray-300 mt-2">
-            {item.description}
-          </p>
+
+        <div className="relative flex items-start gap-4">
+          {/* Content */}
+          <div className="flex-1">
+            <h4 className="text-xl font-semibold text-gray-900 dark:text-white">
+              {item.title}
+            </h4>
+            <p className="text-blue-600 dark:text-blue-400 font-medium mt-1">
+              {item.company} • {item.period}
+            </p>
+            <p className="text-gray-700 dark:text-gray-300 mt-2">
+              {item.description}
+            </p>
+          </div>
+
+          {/* Icon container */}
+          <div className="shrink-0 flex items-center justify-center w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800/50">
+            {item.icon ? (
+              <Icon
+                icon={item.icon}
+                width={28}
+                height={28}
+                className="text-blue-600 dark:text-blue-400"
+              />
+            ) : (
+              // Fallback icon if none is provided
+              <Icon
+                icon="mdi:briefcase"
+                width={28}
+                height={28}
+                className="text-blue-600 dark:text-blue-400 opacity-50"
+              />
+            )}
+          </div>
         </div>
       </div>
     </motion.div>
@@ -263,7 +288,7 @@ function CertificateCard({
               {item.title}
             </h4>
             <p className="text-emerald-600 dark:text-emerald-400 font-medium mt-1">
-              {item.issuer}
+              {item.issuer} • {item.date}
             </p>
           </div>
         </div>
@@ -339,53 +364,54 @@ export default function About() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Image */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative group"
+            transition={{ duration: 0.7 }}
+            className="relative"
           >
-            <div className="relative w-full h-96 rounded-lg overflow-hidden shadow-xl">
-              <motion.div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-              <Image
-                src="/profile.png"
-                alt="Profile picture"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
-                priority
-              />
-            </div>
-            <motion.div
-              className="absolute -bottom-4 -right-4 w-24 h-24 bg-blue-600 dark:bg-blue-500 rounded-lg opacity-20 blur-2xl"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.2, 0.3, 0.2]
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-          </motion.div>
+            <div
+              className="
+    bg-gray-50 dark:bg-gray-800 
+    rounded-2xl shadow-xl border border-gray-200/60 dark:border-gray-700/60
+    overflow-hidden
+    hover:shadow-2xl hover:shadow-blue-500/15 dark:hover:shadow-blue-400/15
+    transition-all duration-300
+  "
+            >
+              <div className="grid md:grid-cols-2 gap-0">
+                {/* Left: Image */}
+                <div className="relative group overflow-hidden">
+                  <div className="relative w-full h-96 md:h-full min-h-[320px]">
+                    <Image
+                      src="/profile.png"
+                      alt="Profile picture"
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      priority
+                    />
+                  </div>
+                  <div
+                    className="
+          absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/20 
+          opacity-0 group-hover:opacity-60 transition-opacity duration-500
+        "
+                  />
+                </div>
 
-          {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              {siteConfig.bio}
-            </p>
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              Currently, I'm diving into learning topics like Machine Learning
-              and Cybersecurity.
-            </p>
+                {/* Right: Text */}
+                <div className="p-8 lg:p-10 flex flex-col justify-center">
+                  <div className="space-y-6 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                    <p>{siteConfig.bio}</p>
+                    <p>
+                      Currently, I'm diving into learning topics such as Machine
+                      Learning and Cybersecurity.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
 

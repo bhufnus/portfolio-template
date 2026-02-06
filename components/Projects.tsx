@@ -1,8 +1,17 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ArrowTopRightOnSquareIcon, CodeBracketIcon } from "@heroicons/react/24/outline";
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useSpring,
+  useTransform
+} from "framer-motion";
+import {
+  ArrowTopRightOnSquareIcon,
+  CodeBracketIcon
+} from "@heroicons/react/24/outline";
 import { siteConfig } from "@/config/site";
 import Image from "next/image";
 
@@ -16,8 +25,16 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7.5deg", "-7.5deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7.5deg", "7.5deg"]);
+  const rotateX = useTransform(
+    mouseYSpring,
+    [-0.5, 0.5],
+    ["7.5deg", "-7.5deg"]
+  );
+  const rotateY = useTransform(
+    mouseXSpring,
+    [-0.5, 0.5],
+    ["-7.5deg", "7.5deg"]
+  );
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
@@ -49,7 +66,7 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
       style={{
         rotateX,
         rotateY,
-        transformStyle: "preserve-3d",
+        transformStyle: "preserve-3d"
       }}
       className="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow group perspective-1000"
     >
@@ -88,26 +105,31 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
 
         {/* Links */}
         <div className="flex gap-4">
-          <motion.a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-            whileHover={{ x: 4 }}
-          >
-            <CodeBracketIcon className="w-5 h-5" />
-            <span>Code</span>
-          </motion.a>
-          <motion.a
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-            whileHover={{ x: 4 }}
-          >
-            <ArrowTopRightOnSquareIcon className="w-5 h-5" />
-            <span>Live Demo</span>
-          </motion.a>
+          {project.github && (
+            <motion.a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              whileHover={{ x: 4 }}
+            >
+              <CodeBracketIcon className="w-5 h-5" />
+              <span>Code</span>
+            </motion.a>
+          )}
+
+          {project.demo && (
+            <motion.a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              whileHover={{ x: 4 }}
+            >
+              <ArrowTopRightOnSquareIcon className="w-5 h-5" />
+              <span>Live Demo</span>
+            </motion.a>
+          )}
         </div>
       </div>
     </motion.div>
@@ -117,7 +139,12 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
 export default function Projects() {
   const [filter, setFilter] = useState<ProjectCategory>("all");
 
-  const categories: ProjectCategory[] = ["all", "fullstack", "frontend", "backend"];
+  const categories: ProjectCategory[] = [
+    "all",
+    "fullstack",
+    "frontend",
+    "backend"
+  ];
 
   const filteredProjects =
     filter === "all"
@@ -164,7 +191,9 @@ export default function Projects() {
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
-                <span className="relative z-10">{category.charAt(0).toUpperCase() + category.slice(1)}</span>
+                <span className="relative z-10">
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                </span>
               </motion.button>
             ))}
           </div>

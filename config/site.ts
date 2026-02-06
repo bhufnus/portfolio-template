@@ -2,7 +2,7 @@ export const siteConfig = {
   // Personal Information
   name: "Brian Hufnus",
   title: "Fullstack Engineer and Cloud Expert",
-  bio: "I'm an experienced developer specializing in React, Java Spring Boot, SQL/NoSQL, and modern web technologies. I build scalable cloud-based applications with AWS and Kubernetes while adhering to clean code and best practices.",
+  bio: "I'm an experienced fullstack developer specializing in React, Java Spring Boot, and SQL/NoSQL databases. I build scalable cloud-based microservices with AWS and Kubernetes while adhering to clean code and best practices.",
   email: "your.email@example.com",
 
   // Social Links
@@ -28,36 +28,81 @@ export const siteConfig = {
       company: "Northwestern Mutual",
       period: "2022 - Present",
       description:
-        "Leading development of scalable web applications using React, Next.js, and Node.js.",
+        "Leading fullstack development of scalable web applications using React, Java Spring Boot, and Node.js; all deployed to the cloud via AWS",
       details: {
         highlights: [
+          "Developed robust, REST-compliant backend APIs supporting full CRUD functionality",
+          "Facilitated sprint planning sessions, daily stand-ups, and sprint retrospectives to drive team alignment and continuous improvement",
           "Architected and delivered full-stack features for internal tools used across the enterprise.",
           "Collaborated with product and design to ship accessible, performant UIs with React and TypeScript.",
           "Improved reliability and observability with automated tests and monitoring.",
-          "DevOps:"
+          "Configured and maintained CI/CD pipelines via GitLab"
         ],
         technologies: [
           "React",
+          "Redis",
+          "Kafka",
           "Java Spring Boot",
           "Node.js",
           "TypeScript",
           "AWS",
-          "Kubernetes"
+          "Terraform",
+          "Kubernetes",
+          "GitLab",
+          "Jira",
+          "SQL",
+          "MongoDb"
         ]
       }
     },
     {
       title: "Dev10 Software Developer Trainee",
+      icon: "mdi:certificate",
       company: "Genesis10",
       period: "2022 - 2022",
       description:
-        "Built and maintained multiple client-facing applications with React and Express.",
+        "Chosen for highly selective, paid Dev10 SWE training program - less than 5% of applicants are hired",
       details: {
         highlights: [
-          "Chosen for highly selective, paid Dev10 training program - less than 5% of applicants are hired",
-          "Training in Java Cloud (Java, JavaScript, React, AWS, CSS and HTML)"
+          "Training in Java Cloud (Java, JavaScript, React, AWS, CSS and HTML)",
+          "Developed a complete fullstack web application called PeppsTalk - a social study aid where users can create and share flashcards"
         ],
-        technologies: ["React", "Express", "MySQL", "Java", "Docker", "AWS"]
+        technologies: [
+          "React",
+          "Node.js",
+          "MySQL",
+          "Java",
+          "Docker",
+          "AWS",
+          "JavaScript",
+          "HTML/CSS"
+        ]
+      }
+    },
+    {
+      title: "Certified Pharmacy Technician",
+      icon: "mdi:mortar-pestle",
+      company: "CVS Pharmacy",
+      period: "2016 - 2019",
+      description:
+        "Counseled patients on new medications, processed & filled new prescriptions, resolved insurance issues, and maintained an organized inventory in a fast-paced retail pharmacy setting.",
+      details: {
+        highlights: [
+          "Assisted with prescription pickup and provided usage instructions",
+          "Counseled patients on proper medication use, dosing, and potential interactions",
+          "Resolved third-party insurance discrepancies with payers",
+          "Managed prescription filing and drug inventory (stock rotation, expiration checks)",
+          "Processed new prescriptions and insurance information at drop-off",
+          "Filled prescriptions accurately and in a timely manner"
+        ],
+        technologies: [
+          "Point-of-Sale (POS)",
+          "Stock Rotation & Inventory",
+          "Third-Party Payer Resolution",
+          "Insurance Billing",
+          "Pharmacy Operations",
+          "Prescription Processing"
+        ]
       }
     }
   ],
@@ -65,16 +110,41 @@ export const siteConfig = {
   // Education (details shown on hover)
   education: [
     {
+      degree: "Doctor of Pharmacy Candidate",
+      school: "Midwestern University School of Pharmacy",
+      period: "2018 - 2019",
+      details: {
+        highlights: [
+          "Successfully completed the first-year curriculum, achieving a high GPA while mastering foundational pharmaceutical sciences and practice skills.",
+          "Participated in Introductory Pharmacy Practice Experiences (IPPE), applying classroom knowledge to real-world pharmacy settings and developing patient care skills",
+          "Research and lab experience; strong foundation in logical reasoning and documentation.",
+          "Pivoted into software development through self-study and bootcamp-style learning."
+        ],
+        technologies: [
+          "Patient counseling",
+          "Lab techniques",
+          "Data analysis",
+          "Scientific writing"
+        ]
+      }
+    },
+    {
       degree: "Bachelor of Science in Biology",
       school: "Loyola University Chicago",
       period: "2014 - 2018",
       details: {
         highlights: [
-          "Relevant coursework in statistics, data analysis, and scientific computing.",
-          "Research and lab experience; strong foundation in logical reasoning and documentation.",
-          "Pivoted into software development through self-study and bootcamp-style learning."
+          "Relevant coursework in statistics, data analysis, and scientific computing in Python and R.",
+          "Research and lab experience; strong foundation in logical reasoning and documentation."
         ],
-        technologies: ["Lab techniques", "Data analysis", "Scientific writing"]
+        technologies: [
+          "Bioinformatics",
+          "Python",
+          "R",
+          "Lab techniques",
+          "Data analysis",
+          "Scientific writing"
+        ]
       }
     }
   ],
@@ -82,12 +152,23 @@ export const siteConfig = {
   // Certificates & Courses (same layout as Experience & Education)
   certificates: [
     {
+      category: "Cybersecurity",
+      items: [
+        {
+          title: "Google Cybersecurity Professional Certificate(v.2)",
+          issuer: "Coursera",
+          date: "Feb 2, 2026",
+          image: "/google-cybersecurity-professional-certificate-v-2.png"
+        }
+      ]
+    },
+    {
       category: "Machine Learning",
       items: [
         {
           title: "Machine Learning Specialization",
           issuer: "Coursera",
-          date: "2025",
+          date: "Nov 4, 2025",
           image:
             "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~SFLM8VCB00W7/CERTIFICATE_LANDING_PAGE~SFLM8VCB00W7.jpeg"
         },
@@ -111,18 +192,6 @@ export const siteConfig = {
           date: "2025",
           image:
             "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~IE2NU1UPR9LV/CERTIFICATE_LANDING_PAGE~IE2NU1UPR9LV.jpeg"
-        }
-      ]
-    },
-    {
-      category: "Cybersecurity",
-      items: [
-        {
-          title: "Google Cybersecurity Professional Certificate(v.2)",
-          issuer: "Coursera",
-          date: "2026",
-          image:
-            "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~SFLM8VCB00W7/CERTIFICATE_LANDING_PAGE~SFLM8VCB00W7.jpeg"
         }
       ]
     }
@@ -165,32 +234,45 @@ export const siteConfig = {
       tech: ["React", "Javascript", "Node.js", "FirebaseDb"],
       github: "https://github.com/TAB-Games/ReactMemoryGame",
       demo: "https://tab-games.github.io/ReactMemoryGame/",
-      category: "fullstack"
+      category: "frontend"
     },
     {
       id: 2,
-      title: "Task Management App",
+      title: "PeppsTalk: A Social Flashcard App",
       description:
-        "A collaborative task management tool with real-time updates, drag-and-drop, and team collaboration features.",
-      image:
-        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop",
-      tech: ["React", "TypeScript", "Express", "Socket.io", "PostgreSQL"],
-      github: "https://github.com/yourusername/task-manager",
-      demo: "https://taskmanager-demo.vercel.app",
+        "Create flashcards and share them with your classmates, or download a deck already made by one of our many students!",
+      image: "/peppstalk.png",
+      tech: [
+        "React",
+        "Java Spring Boot",
+        "MySQL",
+        "AWS RDS",
+        "JWT authentication",
+        "Docker"
+      ],
+      // github: "https://github.com/yourusername/social-dashboard",
+      // demo: "https://dashboard-demo.vercel.app",
       category: "fullstack"
     },
     {
       id: 3,
-      title: "Social Media Dashboard",
+      title: "Handwriting Recognition with Myo Armband",
       description:
-        "Analytics dashboard for social media metrics with data visualization and reporting features.",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Chart.js"],
-      github: "https://github.com/yourusername/social-dashboard",
-      demo: "https://dashboard-demo.vercel.app",
-      category: "frontend"
+        "A Machine Learning proof-of-concept for recognizing handwritten letters (A, B, C) while wearing the Myo armband, which records quaternions and EMG signals.",
+      image: "/myo.jpg",
+      tech: [
+        "Python",
+        "numpy",
+        "tensorflow[and-cuda]",
+        "scikit-learn",
+        "matplotlib",
+        "scipy"
+      ],
+      github: "https://github.com/bhufnus/myo-handwriting-recognition",
+      // demo: "https://taskmanager-demo.vercel.app",
+      category: "fullstack"
     },
+
     {
       id: 4,
       title: "REST API Service",
