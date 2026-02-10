@@ -36,13 +36,14 @@ const qrVariants = {
     y: -2,
     transition: { duration: 0.2, type: "spring" }
   },
-  float: (i = 0) => ({
-    y: [0, -2, 0],
+  float: (custom: number = 0) => ({
+    y: [0, -12, 0],
     transition: {
-      duration: 2 + i * 0.5,
+      duration: 3.2,
       repeat: Infinity,
-      repeatType: "reverse",
-      ease: "easeInOut"
+      repeatType: "reverse" as const,
+      ease: "easeInOut",
+      delay: custom * 0.15
     }
   })
 };
@@ -71,7 +72,7 @@ export default function QRPopup() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 3600);
+    }, 15000);
 
     return () => clearTimeout(timer);
   }, []);
