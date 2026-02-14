@@ -14,7 +14,7 @@ export default function FloatingNav() {
       setIsVisible(window.scrollY > 300);
 
       // Determine active section
-      const sections = ["home", "about", "skills", "projects", "contact"];
+      const sections = ["home", "projects", "about", "skills", "contact"];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections.reverse()) {
@@ -39,10 +39,10 @@ export default function FloatingNav() {
 
   const navItems = [
     { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
-    { id: "contact", label: "Contact" },
+    { id: "about", label: "About" },
+    { id: "Skills", label: "Skills" },
+    { id: "contact", label: "Contact" }
   ];
 
   return (
@@ -76,7 +76,11 @@ export default function FloatingNav() {
                     <motion.div
                       layoutId="activeSection"
                       className="absolute inset-0 bg-blue-100 dark:bg-blue-900/30 rounded-full"
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30
+                      }}
                     />
                   )}
                   <span className="relative z-10">{item.label}</span>

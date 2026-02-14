@@ -2,7 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MoonIcon, SunIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  MoonIcon,
+  SunIcon,
+  Bars3Icon,
+  XMarkIcon
+} from "@heroicons/react/24/outline";
 import { useTheme } from "./ThemeProvider";
 import { siteConfig } from "@/config/site";
 
@@ -17,7 +22,7 @@ export default function Header() {
       setIsScrolled(window.scrollY > 20);
 
       // Determine active section
-      const sections = ["home", "about", "skills", "projects", "contact"];
+      const sections = ["home", "projects", "about", "skills", "contact"];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections.reverse()) {
@@ -94,7 +99,11 @@ export default function Header() {
                       layoutId="activeNav"
                       className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400"
                       initial={false}
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30
+                      }}
                     />
                   )}
                 </motion.a>

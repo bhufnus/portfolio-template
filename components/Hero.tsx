@@ -64,7 +64,22 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               Hi, I'm{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span
+                className={`
+      bg-gradient-to-br from-cyan-300/50 via-blue-400/90 to-purple-500/85
+      bg-clip-text text-transparent
+      font-black tracking-tight
+      drop-shadow-[0_1.5px_6px_rgba(79,70,229,0.4)]
+      backdrop-blur-[1px]
+    `}
+                style={{
+                  // Makes the gradient feel a bit more "glass-like"
+                  backgroundImage:
+                    "linear-gradient(135deg, #a5f3fc 0%, #60a5fa 40%, #c084fc 80%, #a5f3fc 100%)",
+                  backgroundSize: "200% 200%",
+                  animation: "gentleGlassShift 12s ease-in-out infinite"
+                }}
+              >
                 {siteConfig.name.split(" ")[0]}
               </span>
             </motion.h1>
