@@ -21,21 +21,31 @@ export default function Contact() {
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
-    // Simulate form submission (replace with actual API call)
-    // For production, use Formspree, SendGrid, or your own API
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const response = await fetch("https://formspree.io/f/mdalgenv", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          Accept: "application/json"
+        },
+        body: new URLSearchParams({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message
+        }).toString()
+      });
 
-      // Example: Replace with actual form submission
-      // const response = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData),
-      // });
-
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", message: "" });
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        // Optional: read error details if Formspree returns them
+        const errorData = await response.json().catch(() => ({}));
+        console.error("Formspree error:", errorData);
+        setSubmitStatus("error");
+      }
     } catch (error) {
+      console.error("Submission error:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -245,7 +255,7 @@ export default function Contact() {
                   animate={{ opacity: 1 }}
                   className="text-green-600 dark:text-green-400 text-center"
                 >
-                  Message sent successfully!
+                  Message sent successfully! I'll get back to you soon.
                 </motion.p>
               )}
 
@@ -255,7 +265,8 @@ export default function Contact() {
                   animate={{ opacity: 1 }}
                   className="text-red-600 dark:text-red-400 text-center"
                 >
-                  Failed to send message. Please try again.
+                  Failed to send message. Please check your connection and try
+                  again.
                 </motion.p>
               )}
             </div>

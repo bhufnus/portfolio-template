@@ -41,7 +41,7 @@ export default function FloatingNav() {
     { id: "home", label: "Home" },
     { id: "projects", label: "Projects" },
     { id: "about", label: "About" },
-    { id: "Skills", label: "Skills" },
+    { id: "skills", label: "Skills" },
     { id: "contact", label: "Contact" }
   ];
 

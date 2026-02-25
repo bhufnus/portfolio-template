@@ -3,13 +3,13 @@ export const siteConfig = {
   name: "Brian Hufnus",
   title: "Fullstack Engineer and Cloud Expert",
   bio: "I'm an experienced fullstack developer specializing in React, Java Spring Boot, and SQL/NoSQL databases. I build scalable cloud-based microservices with AWS and Kubernetes while adhering to clean code and best practices.",
-  email: "your.email@example.com",
+  email: "brianhufnus [at] gmail [dot] com",
 
   // Social Links
   social: {
     github: "https://github.com/bhufnus",
     linkedin: "https://www.linkedin.com/in/brian-hufnus-761007127/",
-    email: "mailto:your.email@example.com"
+    email: "mailto:brian.hufnus@gmail.com"
   },
 
   // Navigation
@@ -271,20 +271,20 @@ export const siteConfig = {
       github: "https://github.com/bhufnus/myo-handwriting-recognition",
       // demo: "https://taskmanager-demo.vercel.app",
       category: "fullstack"
-    },
-
-    {
-      id: 4,
-      title: "REST API Service",
-      description:
-        "Scalable REST API with authentication, rate limiting, and comprehensive documentation.",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-      tech: ["Node.js", "Express", "MongoDB", "JWT", "Swagger"],
-      github: "https://github.com/yourusername/api-service",
-      demo: "https://api-docs.vercel.app",
-      category: "backend"
     }
+
+    // {
+    //   id: 4,
+    //   title: "REST API Service",
+    //   description:
+    //     "Scalable REST API with authentication, rate limiting, and comprehensive documentation.",
+    //   image:
+    //     "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+    //   tech: ["Node.js", "Express", "MongoDB", "JWT", "Swagger"],
+    //   github: "https://github.com/yourusername/api-service",
+    //   demo: "https://api-docs.vercel.app",
+    //   category: "backend"
+    // }
   ],
 
   // SEO
