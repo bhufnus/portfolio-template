@@ -227,6 +227,17 @@ export const siteConfig = {
   projects: [
     {
       id: 1,
+      title: "Wall Designer",
+      description:
+        "A free-to-use web UI tool that makes hanging wall decorations easy using a grid system and drag-and-drop functionality.",
+      image: "/walldesigner-preview.png",
+      tech: ["React", "Javascript", "Node.js"],
+      // github: "https://github.com/TAB-Games/ReactMemoryGame",
+      demo: "https://wall-designer.onrender.com/",
+      category: "frontend"
+    },
+    {
+      id: 2,
       title: "./memory",
       description:
         "A fun memory game built with React and Javascript with live leaderboard results stored in FirebaseDb. How many levels can you beat?",
@@ -237,7 +248,7 @@ export const siteConfig = {
       category: "frontend"
     },
     {
-      id: 2,
+      id: 3,
       title: "PeppsTalk: A Social Flashcard App",
       description:
         "Create flashcards and share them with your classmates, or download a deck already made by one of our many students!",
@@ -250,12 +261,10 @@ export const siteConfig = {
         "JWT authentication",
         "Docker"
       ],
-      // github: "https://github.com/yourusername/social-dashboard",
-      // demo: "https://dashboard-demo.vercel.app",
       category: "fullstack"
     },
     {
-      id: 3,
+      id: 4,
       title: "Handwriting Recognition with Myo Armband",
       description:
         "A Machine Learning proof-of-concept for recognizing handwritten letters (A, B, C) while wearing the Myo armband, which records quaternions and EMG signals.",
