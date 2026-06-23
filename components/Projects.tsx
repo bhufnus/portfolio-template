@@ -170,7 +170,7 @@ export default function Projects() {
           <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
 
           {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-4">
+          {/* <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => (
               <motion.button
                 key={category}
@@ -196,7 +196,7 @@ export default function Projects() {
                 </span>
               </motion.button>
             ))}
-          </div>
+          </div> */}
         </motion.div>
 
         <AnimatePresence mode="wait">
